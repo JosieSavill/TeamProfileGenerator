@@ -10,21 +10,23 @@ inquirer
       message: 'What is your name?',
     },
     {
-      type: 'checkbox',
+      type: 'list',
       message: 'Select Job Title',
-      name: 'stack',
+      name: 'jobTitle',
       choices: ['Manager', 'Engineer', 'Intern'],
     },
     {
       type: 'input',
       message: 'What is your email address?',
-      name: 'Email: '
+      name: 'email'
     },
   ])
   .then((data) => {
-    const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
 
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-      err ? console.log(err) : console.log('Success!')
-    );
+    console.log('Success!')
+    console.log (data)
+
+    if {
+        
+    }
   });
