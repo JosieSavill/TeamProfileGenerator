@@ -166,41 +166,21 @@ function teamGenerator() {
 // WHEN I select the intern option
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 
-    {
-        type: 'input',
-        name: 'intern_name',
-        message: "What is the intern's name?" 
-    },
+   
 
 
     
-    {
-        type: 'input',
-        name: 'intern_id',
-        message: "What is the intern's name?" 
-    },
 
-    {
-        type: 'input',
-        name: 'intern_email',
-        message: "What is the intern's email address?" 
-    },
-
-    {
-        type: 'input',
-        name: 'intern_school',
-        message: "What is the name of the school the intern is attending ?" 
-    },
 
 
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated -->
 
-  ])
-  .then((data) => {
+//   ])
+//   .then((data) => {
 
-    console.log('Success!')
-    console.log (data)
+//     console.log('Success!')
+//     console.log (data)
 
    // TODO: write data to html file:
 
@@ -218,4 +198,4 @@ function teamGenerator() {
 
 
 
-  });
+//   });
