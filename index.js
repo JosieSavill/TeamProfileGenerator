@@ -19,23 +19,22 @@ function teamGenerator() {
                 type: 'input',
                 name: 'manager_name',
                 message: 'Hello!!  What is your name?'
-              },
-              {
-                  type: "input",
-                  name: 'manager_id',
-                  message: "What is your employee ID number?"  
-              },
-              {
-                  type: 'input',
-                  name: 'manager_email',
-                  message: 'What is your email address?'
-                  
-              },
-              {
-                  type: 'input',
-                  name: 'office_number',
-                  message: "What is your office number?"  
-              },
+            },
+            {
+                type: "input",
+                name: 'manager_id',
+                message: "What is your employee ID number?"  
+            },
+            {
+                type: 'input',
+                name: 'manager_email',
+                message: 'What is your email address?'
+            },
+            {
+                type: 'input',
+                name: 'office_number',
+                message: "What is your office number?"  
+            },
             
         ]) .then((response)=> {
             const manager = new Manager(
@@ -106,7 +105,47 @@ function teamGenerator() {
 
                 )
                 teamMembers.push(engineer)
-                
+
+
+        })
+    }
+    function createIntern(){
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'interns_name',
+                message: "What is the intern's name?" 
+            },
+        
+            {
+                type: 'input',
+                name: 'interns_id',
+                message: "What is the intern's ID?" 
+            },
+        
+            {
+                type: 'input',
+                name: 'interns_email',
+                message: "What is the engineer's email address?" 
+            },
+        
+            {
+                type: 'input',
+                name: 'interns_school',
+                message: "What is the name of the school the intern is currently attending?" 
+            }
+         
+        ])
+        .then((response)=> {
+            const intern = new Intern(
+                response.interns_name,
+                response.interns_id,
+                response.interns_email,
+                response.interns_school
+
+                )
+                teamMembers.push(intern)
+
 
         })
     }
