@@ -21,3 +21,11 @@ THEN I exit the application, and the HTML is generated -->
 
 
 [video submission guide link](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide)
+
+<!-- need to add ikons to titles -->
+
+<!-- need to build tests -->
+
+<!-- need to complete README -->
+
+<!-- need to complete video -->

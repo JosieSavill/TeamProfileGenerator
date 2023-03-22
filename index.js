@@ -3,7 +3,7 @@ const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const path = require('path')
-const render = require('./src/pageTemplate')
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 const DIST_DIR = path.resolve(__dirname,'dist')
@@ -11,7 +11,7 @@ const DIST_PATH = path.join(DIST_DIR,'teamProfile.html')
 const teamMembers = []
 
 
-function teamGenerator() {
+//function teamGenerator() {
     function createManager() {
         console.log('Welcome to the Team Profile Generator!!\nAnswer the following prompts to build your team ...')
         inquirer.prompt([
@@ -99,12 +99,14 @@ function teamGenerator() {
         .then((response)=> {
             const engineer = new Engineer(
                 response.engineers_name,
-                response.engineeers_id,
+                response.engineers_id,
                 response.engineers_email,
                 response.engineers_github
 
                 )
                 teamMembers.push(engineer)
+                nextStep()
+
 
 
         })
@@ -126,7 +128,7 @@ function teamGenerator() {
             {
                 type: 'input',
                 name: 'interns_email',
-                message: "What is the engineer's email address?" 
+                message: "What is the intern's email address?" 
             },
         
             {
@@ -145,11 +147,65 @@ function teamGenerator() {
 
                 )
                 teamMembers.push(intern)
-
+                nextStep()
 
         })
     }
-}
+    function buildTeam(){
+        //teamMembers
+
+
+        let fileName = "dist/index.html";
+        let data = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="dist/style.css">
+        </head>
+        <body>
+            <h1>Team Manager</h1>
+            <div class="container">`;
+
+
+        teamMembers.map(t => {
+
+            data += `<div class="card">
+                    <h4>${t.name}</h4>
+                    <p>${t.getRole()}</p>
+                    <p>${t.id}</p> 
+                    <p>${t.email}</p>
+                    `
+                    switch(t.getRole){
+                        case "Manager": data += `<p>${t.officeNumber}</p>`;  break;
+                        case "Intern":  data += `<p>${t.school}</p>`;  break;
+                        case "Engineer":  data += `<p>${t.github}</p>`; break;
+                     }
+
+                     data += `</div>`;
+         })
+
+       
+
+         data += `</div>
+            </body>
+            </html`;
+
+        fs.writeFile( fileName, data, {},()=>{
+
+            console.log("i am done writing");
+        }) ;
+
+    }
+//}
+
+createManager();
+
+
+
+
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number:
 

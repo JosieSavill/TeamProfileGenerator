@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(244, 106, 129);
+    color: white;
+    padding: 10px;
+
+}
+
+h2 {
+    
+    background-color: blue;
+    color: white;
+    padding: 40px;
+    font-family: Tahoma, sans-serif;
+    
+}
+
+p {
+    font-family: Tahoma, sans-serif;
+    font-style: bold;
+    
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+
+
+}
+.card{
+    width: 30%;
+    border:solid 1px black;
+    padding: 10px;
+}
