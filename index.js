@@ -53,15 +53,15 @@ const teamMembers = []
                 type: 'list',
                 name: 'choice',
                 message: "Select an employee by job title to add to your team, or select 'Team is Complete'",
-                choices: [' 👓  Engineer', ' 🎓 Intern', ' ✅ Team is Complete!!']  
+                choices: ['Engineer', 'Intern', ' ✅ Team is Complete!!']  
             }
         ])
         .then((response)=> {
             switch(response.choice){
-                case ' 👓  Engineer': 
+                case 'Engineer': 
                 createEngineer()
                 break;
-                case ' 🎓 Intern':
+                case 'Intern':
                 createIntern()
                 break;
                 default:
