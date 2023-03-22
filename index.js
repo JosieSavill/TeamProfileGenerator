@@ -166,7 +166,7 @@ const teamMembers = []
             <link rel="stylesheet" href="dist/style.css">
         </head>
         <body>
-            <h1>Team Manager</h1>
+            <h1>My Team</h1>
             <div class="container">`;
 
 
