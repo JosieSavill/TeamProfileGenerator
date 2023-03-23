@@ -163,7 +163,7 @@ const teamMembers = []
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Document</title>
-            <link rel="stylesheet" href="dist/style.css">
+            <link rel="stylesheet" href="style.css">
         </head>
         <body>
             <h1>My Team</h1>
@@ -173,16 +173,38 @@ const teamMembers = []
         teamMembers.map(t => {
 
             data += `<div class="card">
-                    <h4>${t.name}</h4>
-                    <p>${t.getRole()}</p>
-                    <p>${t.id}</p> 
-                    <p>${t.email}</p>
-                    `
-                    switch(t.getRole){
-                        case "Manager": data += `<p>${t.officeNumber}</p>`;  break;
-                        case "Intern":  data += `<p>${t.school}</p>`;  break;
-                        case "Engineer":  data += `<p>${t.github}</p>`; break;
-                     }
+                    <h2>${t.name}<br>`
+                    
+                    
+
+                    switch(t.getRole()){
+                        
+                        case "Manager": data += `🍵`;  break;
+                        case "Intern":  data += `🎓`;  break;
+                        case "Engineer":  data += `👓`; break;
+                   }
+                    
+            data += `${t.getRole()}</h2>
+                    <p>ID: ${t.id}</p> 
+                    <p>EMAIL: <a href="mailto:${t.email}">${t.email}</a></p>
+                    <p></p>
+                    `;
+
+                    switch(t.getRole()){
+                        
+                         case "Manager": data += `<p>${t.getOfficeNumber()}</p>`;  break;
+                         case "Intern":  data += `<p>${t.school}</p>`;  break;
+                         case "Engineer":  data += `<p><a href="http://github.com/${t.github}">${t.github}</a></p>`; break;
+                    }
+
+                    // switch case above not working
+
+                    
+
+                   
+
+
+                     
 
                      data += `</div>`;
          })
